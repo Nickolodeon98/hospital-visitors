@@ -1,10 +1,8 @@
 package com.example.hospitalvisitors.domain.entity;
 
+import com.example.hospitalvisitors.domain.dto.VisitResponse;
 import com.fasterxml.jackson.databind.DatabindException;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,6 +12,7 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
+@Builder
 public class Visit {
 
     @Id
@@ -31,6 +30,16 @@ public class Visit {
 
     @ManyToOne
     private User userId;
+
+    public static VisitResponse of(Visit visit) {
+        return VisitResponse.builder()
+                .userName(visit.getUserId().getUid())
+                .hospitalName(visit.getHospitalId().getHospitalName())
+                .diseaseName(visit.getDisease().getDiseaseName())
+                .recordedAt(visit.recordedAt)
+                .diagnosisFee(visit.diagnosisFee)
+                .build();
+    }
 
     public void setUser(User user) {
         this.userId = user;

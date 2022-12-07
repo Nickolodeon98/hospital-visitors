@@ -1,5 +1,6 @@
 package com.example.hospitalvisitors.domain.dto;
 
+import com.example.hospitalvisitors.domain.entity.Visit;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -17,4 +18,11 @@ public class VisitRequest {
     private Long diseaseId;
     private Date recordedAt;
     private Long diagnosisFee;
+
+    public Visit toEntity() {
+        return Visit.builder()
+                .diagnosisFee(diagnosisFee)
+                .recordedAt(recordedAt)
+                .build();
+    }
 }
