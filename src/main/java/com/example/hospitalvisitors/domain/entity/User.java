@@ -17,6 +17,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String uid;
+
+
     @OneToMany
     private List<Visit> visits;
 }

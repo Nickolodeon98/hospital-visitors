@@ -17,6 +17,10 @@ public class Hospital {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String hospitalName;
+    private String roadNameAddress;
+    private String businessTypeName;
+
     @OneToMany
     private List<Visit> visits;
 }
