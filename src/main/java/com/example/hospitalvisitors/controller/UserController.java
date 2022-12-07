@@ -21,8 +21,7 @@ public class UserController {
      * TODO: 명시하는 아이디로 로그인한다. */
     @PostMapping("/login")
     public ResponseEntity<String> loginWithUserId(@RequestBody LoginRequest loginRequest) {
-        String token = userService.authenticate(loginRequest.getUserId());
-
+        String token = userService.authenticate(loginRequest);
         return ResponseEntity.ok().body(token);
     }
 }
