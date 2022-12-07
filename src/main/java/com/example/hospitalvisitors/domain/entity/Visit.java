@@ -32,6 +32,4 @@ public class Visit {
     @ManyToOne
     private User userId;
 
-
-
 }
