@@ -18,3 +18,9 @@ server:
     encoding:
       force-response: true
   port: 8080
+jwt:
+  secret:
+    "hello"
+logging:
+  level:
+    root: info
