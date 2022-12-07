@@ -32,4 +32,8 @@ public class Visit {
     @ManyToOne
     private User userId;
 
+    public void setUser(User user) {
+        this.userId = user;
+    }
+
 }
