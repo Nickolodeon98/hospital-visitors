@@ -17,9 +17,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String uid;
 
 
-    @OneToMany
+    @OneToMany(mappedBy = "uid")
     private List<Visit> visits;
 }
