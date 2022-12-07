@@ -21,6 +21,6 @@ public class User {
     private String uid;
 
 
-    @OneToMany(mappedBy = "uid")
+    @OneToMany(mappedBy = "user")
     private List<Visit> visits;
 }

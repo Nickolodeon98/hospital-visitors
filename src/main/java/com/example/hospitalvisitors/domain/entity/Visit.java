@@ -26,15 +26,15 @@ public class Visit {
     private Disease disease;
 
     @ManyToOne
-    private Hospital hospitalId;
+    private Hospital hospital;
 
     @ManyToOne
-    private User userId;
+    private User user;
 
     public static VisitResponse of(Visit visit) {
         return VisitResponse.builder()
-                .userName(visit.getUserId().getUid())
-                .hospitalName(visit.getHospitalId().getHospitalName())
+                .userName(visit.getUser().getUid())
+                .hospitalName(visit.getHospital().getHospitalName())
                 .diseaseName(visit.getDisease().getDiseaseName())
                 .recordedAt(visit.recordedAt)
                 .diagnosisFee(visit.diagnosisFee)
@@ -42,7 +42,7 @@ public class Visit {
     }
 
     public void setUser(User user) {
-        this.userId = user;
+        this.user = user;
     }
 
 }

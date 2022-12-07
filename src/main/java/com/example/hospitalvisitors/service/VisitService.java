@@ -19,7 +19,7 @@ public class VisitService {
     public VisitResponse writeNewRecord(String uid, VisitRequest visitRequest) { // specific user id is conveyed
         Visit visit = visitRequest.toEntity(); // user id is then saved as well as any other info in visitRequest
         User user = userRepository.findByUid(uid).orElseThrow(RuntimeException::new);
-        visit.setUserId(user);
+        visit.setUser(user);
         Visit savedVisit = visitRepository.save(visit);
         return Visit.of(savedVisit);
     }
