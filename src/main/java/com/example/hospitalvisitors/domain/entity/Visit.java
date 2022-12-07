@@ -34,8 +34,8 @@ public class Visit {
     public static VisitResponse of(Visit visit) {
         return VisitResponse.builder()
                 .userName(visit.getUser().getUid())
-//                .hospitalName(visit.getHospital().getHospitalName())
-//                .diseaseName(visit.getDisease().getDiseaseName())
+                .hospitalName(visit.getHospital().getHospitalName())
+                .diseaseName(visit.getDisease().getDiseaseName())
                 .recordedAt(visit.recordedAt)
                 .diagnosisFee(visit.diagnosisFee)
                 .build();
