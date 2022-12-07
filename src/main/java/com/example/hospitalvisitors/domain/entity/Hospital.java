@@ -21,6 +21,6 @@ public class Hospital {
     private String roadNameAddress;
     private String businessTypeName;
 
-    @OneToMany
+    @OneToMany(mappedBy = "hospital")
     private List<Visit> visits;
 }
