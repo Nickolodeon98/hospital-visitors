@@ -16,10 +16,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-//    @Value("${jwt.secret}")
-//    private String secretKey;
+    @Value("${jwt.secret}")
+    private String secretKey;
 
-    private String uid;
+//    private String uid;
 //    private UserService userService;
 
     @Bean
@@ -29,13 +29,13 @@ public class SecurityConfig {
                 .csrf().disable()
                 .cors().and()
                 .authorizeRequests()
-                .antMatchers("/api/main/**", "api/users/login").permitAll()
+                .antMatchers("/api/users/login").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/visits/new").authenticated()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-//                .addFilterBefore(new JwtAuthenticationFilter(uid, userService), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new JwtAuthenticationFilter(secretKey), UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 }
