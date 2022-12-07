@@ -14,8 +14,8 @@ import java.util.Date;
 @EqualsAndHashCode
 public class VisitRequest {
 
-    private Long hospitalId;
-    private Long diseaseId;
+    private Long hospitalName;
+    private Long diseaseName;
     private Date recordedAt;
     private Long diagnosisFee;
 
