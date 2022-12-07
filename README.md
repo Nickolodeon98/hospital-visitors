@@ -11,5 +11,4 @@
 ### 📊 ER 다이어그램
 
 
-![설계 drawio](https://user-images.githubusercontent.com/113348293/206075806-d4f4578b-a20f-4916-a741-16a190ca779b.png)
-
+![설계 drawio (1)](https://user-images.githubusercontent.com/113348293/206086693-854ee5f0-0cbe-4620-82e3-24b2d4ddd7ca.png)
