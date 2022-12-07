@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
@@ -37,14 +38,16 @@ class VisitControllerTest {
     @DisplayName("사용자 정보와 병원 정보가 들어 있는 방문 내역을 저장한다.")
     public void save_visit_history() throws Exception {
         String uid = "sjeon0730";// 사용자 아이디
-        VisitRequest visitRequest = new VisitRequest(1L, 1L);
-        VisitResponse visitResponse = VisitResponse.builder()
+
+        VisitRequest visitRequest = new VisitRequest(1L, 1L); // 가짜 요청
+
+        VisitResponse visitResponse = VisitResponse.builder() // 가짜 응답
                 .diseaseName("감기")
                 .hospitalName("참조은의원")
                 .userName("sjeon0730")
                 .build();
 
-        when(visitService.writeNewRecord(uid, visitRequest)).thenReturn(visitResponse);
+        given(visitService.writeNewRecord(uid, visitRequest)).willReturn(visitResponse);
 
         String url = "/api/visits/new";
         mockMvc.perform(post(url)
