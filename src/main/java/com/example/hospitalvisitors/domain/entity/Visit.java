@@ -22,7 +22,7 @@ public class Visit {
     private Long diagnosisFee;
     private Date recordedAt;
 
-    @OneToOne
+    @ManyToOne
     private Disease disease;
 
     @ManyToOne

@@ -3,6 +3,7 @@ package com.example.hospitalvisitors.domain.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -19,6 +20,6 @@ public class Disease {
 
     private String diseaseName;
 
-    @OneToOne
-    private Visit visit;
+    @OneToMany(mappedBy = "disease")
+    private List<Visit> visits;
 }
