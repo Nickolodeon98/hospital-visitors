@@ -12,3 +12,13 @@
 
 
 ![설계 drawio (1)](https://user-images.githubusercontent.com/113348293/206086693-854ee5f0-0cbe-4620-82e3-24b2d4ddd7ca.png)
+
+
+
+## API 목록
+
+### 1. /api/visits/new
+
+```
+새로운 방문 내역을 기록합니다. 
+```
