@@ -13,7 +13,8 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @Builder
-public class Visit {
+@ToString(callSuper = true)
+public class Visit extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
