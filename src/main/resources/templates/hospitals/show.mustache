@@ -1,4 +1,27 @@
-{{layouts/header}}
+{{>layouts/header}}
 <body>
 <h1>Hello, world!</h1>
-{{layouts/footer}}
+    <table class="table">
+        <thead>
+    <tr>
+        <th scope="col">아이디</th>
+        <th scope="col">이름</th>
+        <th scope="col">전화번호</th>
+        <th scope="col">주소</th>
+    </tr>
+    </thead>
+        <tbody>
+        {{#hospitals}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{hospitalName}}</td>
+            <td>{{phone}}</td>
+            <td>{{roadNameAddress}}</td>
+        </tr>
+        {{/hospitals}}
+        </tbody>
+    </table>
+
+<button type="submit" onclick="location.href='/hospitals/list?page={{#previous}}{{page}}{{/previous}}'">이전</button>
+<button type="submit" onclick="location.href='/hospitals/list?page={{#next}}{{page}}{{/next}}'">다음</button>
+{{>layouts/footer}}
