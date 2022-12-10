@@ -20,6 +20,9 @@ public class User {
     @Column(unique = true)
     private String uid;
 
+    private String password;
+
+    private String name;
 
     @OneToMany(mappedBy = "user")
     private List<Visit> visits;
