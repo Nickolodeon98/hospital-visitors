@@ -1,5 +1,6 @@
 package com.example.hospitalvisitors.exception;
 
+import com.example.hospitalvisitors.domain.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,9 +11,9 @@ public class ExceptionManager {
 
 
     @ExceptionHandler(JoinException.class)
-    public static ResponseEntity<?> joinError() {
-
-        return
+    public ResponseEntity<?> joinExceptionHandler(JoinException e) {
+        return ResponseEntity.status(e.getErrorCode().getHttpStatus())
+                .body(Response.error(e.getErrorCode().getMessage()));
     }
 
 
