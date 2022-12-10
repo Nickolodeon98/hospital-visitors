@@ -1,0 +1,10 @@
+{{>layouts/header}}
+<div>
+    {{#errorCode}}
+        {{errorCode}} 에러입니다.
+    {{/errorCode}}
+    {{#message}}
+        {{message}} 가 없습니다.
+    {{/message}}
+</div>
+{{>layouts/footer}}
