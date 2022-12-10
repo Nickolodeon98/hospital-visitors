@@ -2,6 +2,8 @@ package com.example.hospitalvisitors.controller;
 
 import com.example.hospitalvisitors.domain.dto.JoinRequest;
 import com.example.hospitalvisitors.domain.dto.JoinResponse;
+import com.example.hospitalvisitors.exception.ErrorCode;
+import com.example.hospitalvisitors.exception.JoinException;
 import com.example.hospitalvisitors.service.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -79,7 +81,7 @@ class UserControllerTest {
     @Test
     @DisplayName("회원가입에 실패한다.")
     void join_fail() throws Exception {
-        given(userService.joinUser(any())).willThrow(new HospitalAppException(ErrorCode.DUPLICATE_ID.name()));
+        given(userService.joinUser(any())).willThrow(new JoinException(ErrorCode.DUPLICATE_ID));
 
         String url = "/api/users/join";
         mockMvc.perform(post(url)
